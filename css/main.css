@@ -33,9 +33,17 @@ button {
     background-color: black;
 }
 
-.img {
+.figure {
     display: none;
     object-fit: contain;
+}
+
+.text-wrapper {
+    color: white;
+    position: absolute; 
+    right: 0; 
+    bottom: 50px; 
+    padding: 20px;
 }
 
 .button {
