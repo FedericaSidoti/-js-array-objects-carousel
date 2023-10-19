@@ -49,41 +49,41 @@ for(let i = 0; i < images.length; i++) {
     //console.log(imgContainerDomElement.innerHTML)
 }
 
-const imgElements = document.querySelectorAll('.figure')
+const figureElements = document.querySelectorAll('.figure')
 //console.log(imgElements)
-let indexSelectedImage = 0; 
+let indexSelectedFigure = 0; 
 //let firstIMG = imgElements[0]
-let selectedIMG = imgElements[indexSelectedImage]
-selectedIMG.classList.add('active')
+let selectedFigure = figureElements[indexSelectedFigure]
+selectedFigure.classList.add('active')
 
 //aggiungere alle frecce un eventlistener
 btndownDOMElement = document.getElementById('btn-down')
 btndownDOMElement.addEventListener ('click', function (){
 // AL CLICK la classe active viene aggiunta all'immagine successiva a quella mostrata. 
-    if (indexSelectedImage === images.length - 1) {
-        indexSelectedImage = 0 ;
+    if (indexSelectedFigure === images.length - 1) {
+        indexSelectedFigure = 0 ;
     } else {
 
-    selectedIMG.classList.remove('active')
-    selectedIMG = imgElements[indexSelectedImage++]
-    selectedIMG.classList.add('active')
-    console.log(selectedIMG.classList)
-    console.log(indexSelectedImage)
+    selectedFigure.classList.remove('active')
+    selectedFigure = figureElements[indexSelectedFigure++]
+    selectedFigure.classList.add('active')
+    console.log(selectedFigure.classList)
+    console.log(indexSelectedFigure)
     }
 })    
 
 btnUpElement = document.getElementById('btn-up')
 btnUpElement.addEventListener('click', function(){
 
-    if (indexSelectedImage === 0 ) {
-        indexSelectedImage = (images.length -1)
+    if (indexSelectedFigure === 0 ) {
+        indexSelectedFigure = (images.length -1)
     } else {
 
-    selectedIMG.classList.remove('active')
-    selectedIMG = imgElements[indexSelectedImage --]
-    selectedIMG.classList.add('active')
-    console.log(selectedIMG.classList)
-    console.log(indexSelectedImage)
+    selectedFigure.classList.remove('active')
+    selectedFigure = figureElementsElements[indexSelectedFigure --]
+    selectedFigure.classList.add('active')
+    console.log(selectedFigure.classList)
+    console.log(indexSelectedFigure)
     }
     
 })
