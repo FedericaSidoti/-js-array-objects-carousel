@@ -59,32 +59,36 @@ selectedFigure.classList.add('active')
 //aggiungere alle frecce un eventlistener
 btndownDOMElement = document.getElementById('btn-down')
 btndownDOMElement.addEventListener ('click', function (){
-// AL CLICK la classe active viene aggiunta all'immagine successiva a quella mostrata. 
-    if (indexSelectedFigure === images.length - 1) {
-        indexSelectedFigure = 0 ;
-    } else {
 
-    selectedFigure.classList.remove('active')
-    selectedFigure = figureElements[indexSelectedFigure++]
-    selectedFigure.classList.add('active')
-    console.log(selectedFigure.classList)
-    console.log(indexSelectedFigure)
+    indexSelectedFigure++; 
+// AL CLICK la classe active viene aggiunta all'immagine successiva a quella mostrata. 
+    if (indexSelectedFigure === images.length) {
+        indexSelectedFigure = 0 ;
     }
+
+    let activeFigure = document.querySelector('.active')
+        activeFigure.classList.remove('active')
+        activeFigure = figureElements[indexSelectedFigure]
+        activeFigure.classList.add('active')
+        console.log(activeFigure.classList)
+        console.log(indexSelectedFigure)
 })    
 
 btnUpElement = document.getElementById('btn-up')
 btnUpElement.addEventListener('click', function(){
 
-    if (indexSelectedFigure === 0 ) {
-        indexSelectedFigure = (images.length -1)
-    } else {
+    indexSelectedFigure--;
 
-    selectedFigure.classList.remove('active')
-    selectedFigure = figureElementsElements[indexSelectedFigure --]
-    selectedFigure.classList.add('active')
-    console.log(selectedFigure.classList)
-    console.log(indexSelectedFigure)
+    if (indexSelectedFigure === -1 ) {
+        indexSelectedFigure = images.length - 1
     }
+
+    let activeFigure = document.querySelector('.active')
+        activeFigure.classList.remove('active')
+        activeFigure = figureElements[indexSelectedFigure]
+        activeFigure.classList.add('active')
+        console.log(activeFigure.classList)
+        console.log(indexSelectedFigure)
     
 })
 
