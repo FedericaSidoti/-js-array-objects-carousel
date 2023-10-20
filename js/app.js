@@ -58,37 +58,60 @@ selectedFigure.classList.add('active')
 
 //aggiungere alle frecce un eventlistener
 btndownDOMElement = document.getElementById('btn-down')
-btndownDOMElement.addEventListener ('click', function (){
+btndownDOMElement.addEventListener ('click', carouselDownLogic)
 
+
+btnUpElement = document.getElementById('btn-up')
+btnUpElement.addEventListener('click', carouselUpLogic)
+
+//function(){
+    //PARTE A
+//    indexSelectedFigure--; (decremento)
+      //oppure indexSelectedFigure++; (decremento)
+//   ---nel caso del decremento--
+//    if (indexSelectedFigure === -1 ) {
+//        indexSelectedFigure = images.length - 1
+//    }
+//   ----nel caso dell'incremento---
+//    if (indexSelectedFigure === images.length) {
+//        indexSelectedFigure = 0 ;
+//    }
+// SEMPRE UGUALE PER ENTRAMBI, PARTE B
+//    let activeFigure = document.querySelector('.active')
+//        activeFigure.classList.remove('active')
+//        activeFigure = figureElements[indexSelectedFigure]
+//        activeFigure.classList.add('active')
+//        console.log(activeFigure.classList)
+//        console.log(indexSelectedFigure)
+//    
+//})
+
+function doActive () {
+    //questa funzione serve a spostare la classe active: PARTE B
+
+    let activeFigure = document.querySelector('.active')
+        activeFigure.classList.remove('active')
+        activeFigure = figureElements[indexSelectedFigure]
+        activeFigure.classList.add('active')
+        //console.log(activeFigure.classList)
+        //console.log(indexSelectedFigure)
+}
+
+function carouselDownLogic () {
+//questa funzione serve a gestire l'incremento dell'indice e scorrere le immagini da 0 a 5
     indexSelectedFigure++; 
-// AL CLICK la classe active viene aggiunta all'immagine successiva a quella mostrata. 
     if (indexSelectedFigure === images.length) {
         indexSelectedFigure = 0 ;
     }
+    doActive()
+}
 
-    let activeFigure = document.querySelector('.active')
-        activeFigure.classList.remove('active')
-        activeFigure = figureElements[indexSelectedFigure]
-        activeFigure.classList.add('active')
-        console.log(activeFigure.classList)
-        console.log(indexSelectedFigure)
-})    
-
-btnUpElement = document.getElementById('btn-up')
-btnUpElement.addEventListener('click', function(){
-
-    indexSelectedFigure--;
-
+function carouselUpLogic () {
+//questa funzione serve a gestire il decremento dell'indice e scorrere le immagini da 5 a 0
+    indexSelectedFigure-- ; 
     if (indexSelectedFigure === -1 ) {
         indexSelectedFigure = images.length - 1
     }
-
-    let activeFigure = document.querySelector('.active')
-        activeFigure.classList.remove('active')
-        activeFigure = figureElements[indexSelectedFigure]
-        activeFigure.classList.add('active')
-        console.log(activeFigure.classList)
-        console.log(indexSelectedFigure)
-    
-})
+    doActive()
+}
 
